@@ -1,0 +1,813 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    background-color: #fff;
+    color: #444;
+    font-family: Lato, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Not supported in Safari */
+}
+
+/* Reusable Section */
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; /* 1fr - divides the space available equally
+                                            The 1fr is what tells the browser to distribute the space between the columns so that each column equally gets one fraction of that space.  */
+}
+
+.grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-three {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-form {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin: 3% 0 3%;
+}
+
+/* Reusable Section */
+
+/* Headings */
+
+h1,h2,h3 {
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 250%;
+    word-spacing: 4px;
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h2::after {
+    display: block;
+    content: '';
+    height: 2px;
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    background-color: #e67e22;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+    letter-spacing: normal;
+}
+
+/* Navigation Starts */
+
+nav {
+    overflow: auto;
+}
+
+nav .row {
+    overflow: auto;
+}
+
+.logo {
+    height: 100px;
+    float: left;
+    margin-top: 20px;
+}
+
+.navigation {
+    float: right;
+    list-style: none;
+    margin-top: 55px;
+}
+
+.navigation li {
+    display: inline-block;
+    margin-left: 25px;
+}
+
+.navigation li a:link,
+.navigation li a:visited {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 90%; /* base font-size defioned in html is 20px, so to set a font-size of 18px we should divide 18 by 20 and multiply with 100 => (18/20)*100 = 90% */
+    padding-bottom: 8px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s ease-in;
+}
+
+.navigation li a:hover,
+.navigation li a:active {
+    border-bottom: 2px solid #e67e22;
+}
+
+/* Navigation Ends */
+
+/* Sticky Navigation */
+
+.logo-black {
+    display: none;
+    height: 50px;
+    float: left;
+    margin: 5px 0;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98);
+    transition: background-color 200ms ease-in;
+    box-shadow: 0 2px 2px #efefef;
+    z-index: 1;
+}
+
+.sticky .logo {
+    display: none;
+}
+
+.sticky .logo-black {
+    display: block;
+}
+
+.sticky .navigation li a:link,
+.sticky .navigation li a:visited {
+    color: #444;
+    padding: 17px 0;
+}
+
+.sticky .navigation {
+    margin-top: 18px;
+}
+
+/* Sticky Navigation Ends */
+
+/* Mobile Navigation */
+
+/* menu */
+
+.header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+}
+
+/* menu icon */
+
+.header .sticky .menu-icon {
+    margin: 28px 20px;
+}
+
+.header .menu-icon {
+    cursor: pointer;
+    display: none;
+    float: right;
+    margin: 38px 20px;
+    position: relative;
+    user-select: none;
+}
+
+.header .sticky .menu-icon .navicon,
+.header .sticky .menu-icon .navicon:before,
+.header .sticky .menu-icon .navicon:after{
+    background: #333;
+}
+  
+.header .menu-icon .navicon {
+    background: #fff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+}
+  
+.header .menu-icon .navicon:before,
+.header .menu-icon .navicon:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+  
+.header .menu-icon .navicon:before {
+    top: 5px;
+}
+  
+.header .menu-icon .navicon:after {
+    top: -5px;
+}
+  
+  /* menu btn */
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked ~ .menu {
+    max-height: 240px;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+}
+
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+}
+
+/* Mobile Navigation Ends */
+
+/* Header Starts */
+
+/* header {
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero.jpg) center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+} */
+
+header {
+    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.6)),to(rgba(0,0,0,0.6))),url(../img/hero-min.jpg) center;
+    background: -o-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero-min.jpg) center;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero-min.jpg) center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.hero-text {
+    width: 1140px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.btn:link,
+.btn:visited,
+input[type=submit] {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border: 1px solid #e67e22;
+    border-radius: 50px;
+    transition: background-color 200ms ease-in, color 200ms ease-in, border 200ms ease-in;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type=submit] {
+    background: #e67e22;
+    margin-right: 15px;
+    color: #fff;
+}
+
+.btn-ghost:link,
+.btn-ghost:visited {
+    color: #e67e22;
+}
+
+.btn:hover,
+.btn:active,
+input[type=submit]:hover,
+input[type=submit]:active {
+    background-color: #bf6516;
+    border: 1px solid #bf6516;
+}
+
+.btn-ghost:hover,
+.btn-ghost:active {
+    color: #fff;
+}
+
+/* Header Ends */
+
+/* Features Section */
+
+.grid-box {
+    padding: 5%;
+}
+
+.grid-box p {
+    font-size: 90%;
+    line-height: 145%;
+}
+
+.features-intro {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 40px;
+}
+
+.icons {
+    display: block;
+    font-size: 300%;
+    font-weight: lighter;
+    color: #e67e22;
+    margin-bottom: 10px;
+}
+
+/* Features Ends */
+
+/* Gallery Section */
+
+.gallery {
+    padding: 0;
+}
+
+.gallery ul {
+    width: 100%;
+}
+
+.gallery ul li {
+    background-color: #000;
+    overflow: hidden;
+}
+
+.gallery .grid-container img {
+    width: 100%;
+    opacity: 0.7;
+    transform: scale(1.15);
+    transition: transform 200ms ease-in, opacity 200ms ease-in;
+}
+
+.gallery .grid-container img:hover {
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/* Gallery Ends */
+
+/* Work-steps Section */
+
+.work-steps {
+    background-color: #f4f4f4;
+}
+
+.grid-item:first-child {
+    text-align: right;
+    padding-right: 8%;
+    margin-top: 30px;
+}
+
+.grid-item:last-child { 
+    padding-left: 8%;
+    margin-top: 70px;
+}
+
+/* .grid-item:first-child img {
+    width: 40%;
+} */
+
+.steps {
+    margin-bottom: 50px;
+}
+
+.steps:last-of-type {
+    margin-bottom: 80px;
+}
+
+.steps span {
+    color: #e67e22;
+    border: 2px solid #e67e22;
+    /* display:inline-block; */
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+    text-align: center;
+    float: left;
+    margin-right: 25px;
+    font-size: 150%;
+}
+
+.app-screen {
+    width: 40%;
+}
+
+.app-btn img {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Work-steps Ends */
+
+/* Cities Section */
+
+.cities .grid-box img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px; 
+}
+
+.list {
+    margin-bottom: 5px;
+}
+
+.list-icons i {
+    font-size: 110%;
+    color: #e67e22;
+    margin-right: 15px;
+    line-height: 125%;
+}
+
+.list a:link,
+.list a:visited {
+    color: #e67e22;
+    text-decoration: none;
+    transition: color 200ms ease-in;
+}
+
+.list a:hover,
+.list a:active {
+    color: #444;
+    text-decoration: none;
+}
+
+/* Hover style applied directly on icon in footer */
+/* .list:last-child i:hover,
+.list:last-child i:active {
+    color: #00aced;
+} */ 
+
+/* Cities Ends */
+
+/* Testimonials Section */
+ 
+/* .testimonials {
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers.jpg) center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+} */
+
+.testimonials {
+    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0.8))),url(../img/back-customers-min.jpg) center;
+    background: -o-linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers-min.jpg) center;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers-min.jpg) center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #fff;
+}
+
+/* I like the way the quotes are placed, if not we can remove the commented out code from blockquote and after */
+
+blockquote {
+    /* position: relative; */
+    padding: 2%;
+    font-style: italic;
+    line-height: 145%;
+    margin-top: 40px;
+}
+
+blockquote::before {
+    content: "\201c";
+    font-size: 500%;
+    /* display: block;
+    position: absolute;
+    top: -5px;
+    left: -3px; */
+}
+
+cite {
+    display: block;
+    font-size: 90%;
+    margin-top: 25px;
+}
+
+cite img {
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Testimonials Ends */
+
+/* Plans Section */
+
+.plans {
+    background-color: #f4f4f4;
+}
+
+.plan-cards {
+    background-color: #fff;
+    border-radius: 5px;
+    width: 90%;
+    margin-left: 5%;
+    box-shadow: 5px 5px 2px #e7e7e7;
+}
+
+.plan-cards div {
+    padding: 15px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.plan-cards div:first-child {
+    background-color: #fcfcfc;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.plan-cards div:last-child {
+    text-align: center;
+    border: 0;
+}
+
+.price {
+    color: #e67e22;
+    font-size: 300%;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+.price span {
+    font-size: 30%;
+    font-weight: 300;
+}
+
+.meal-price {
+    font-size: 80%;
+}
+
+.plan-cards ul li {
+    padding: 5px 0;
+}
+
+/* Plans Ends */
+
+/* Form Section */
+
+.contact-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+input[type=text],
+input[type=email],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=checkbox] {
+    margin: 10px 5px 10px 0;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Form Ends */
+
+/* Footer */
+
+footer {
+    background-color: #333;
+    padding: 50px 0;
+    font-size: 80%;
+}
+
+.footer-grid {
+    margin: 10px 0;
+}
+
+.social-links {
+    font-size: 120%;
+}
+
+.footer-nav li,
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.footer-nav li:last-child,
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.social-links {
+    text-align: right;
+}
+
+.footer-nav li a:link,
+.footer-nav li a:visited,
+.social-links li a:link,
+.social-links li a:visited {
+    color: #888;
+    text-decoration: none;
+    transition: color 200ms ease-in;
+}
+
+.footer-nav li a:hover,
+.footer-nav li a:active {
+    color: #ddd;
+}
+
+.social-links i {
+    transition: color 200ms ease-in, background 200ms ease-in;
+}
+
+.fa-facebook-f:hover {
+    color: #3b5998;
+}
+
+.fa-twitter:hover {
+    color: #00aced
+}
+
+.fa-google-plus-g:hover {
+    color: #dd4b39;
+}
+
+.fa-instagram:hover {
+    /* color: #517fa4; */
+    background: -webkit-radial-gradient(33% 100% circle, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+  background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%, #9b36b7 85%, #515ecf);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+footer p {
+    color: #888;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/******** Media Queries ********/
+
+/* Big Tablets to 1200px: from 1024px to 1200px - Landscape(iPad-1024px) */
+@media only screen and (max-width: 1200px){
+    .row { padding: 0 2%; }
+    .hero-text { width: 100%; padding: 0 2%; }
+}
+
+/* Small Tablets to Big tablets: from 768px to 1023px - Potrait(iPad) */
+@media only screen and (max-width: 1023px){
+    body { font-size: 18px; }
+    section { padding: 60px 0; }
+
+    .features-intro { width: 80%; margin-left: 10%; }
+
+    .grid-item:first-child { margin-top: 10px; }
+    .grid-item:last-child { margin-top: 10px; }
+    .steps { margin-bottom: 40px; }
+    .steps:last-of-type { margin-bottom: 60px; }
+    .app-screen { width: 50%; }
+
+    .content { font-size: 90%; }
+    .list-icons i { margin-right: 5px; }
+
+    .plan-cards { width: auto; }
+    .price { font-size: 250%; }
+
+    .contact-form { width: 80%; }
+}
+
+/* Small Phones to Small Tabblets: from 481px to 767px */
+@media only screen and (max-width: 767px){
+    body { font-size: 16px; }
+    section { padding: 30px 0; }
+
+    .features .grid-container, .cities .grid-container { grid-template-columns: 1fr; }
+    .grid-two { grid-template-columns: 1fr; }
+    .grid-three { grid-template-columns: 1fr; }
+    .grid-form { grid-template-columns: 1fr; }
+
+    h1 { font-size: 180%; }
+    h2 { font-size: 150; }
+    h3 { margin-bottom: 10px; }
+
+    .row, .hero-text { padding: 0 4%; }
+    /* .navigation { display: none; } */
+    .logo { height: 60px; margin-top: 12px; }
+    .navigation { overflow: hidden; float: none; /* text-align: center; */ }
+    .navigation li { display: block; margin: 15px 15px;}
+    .header .menu-icon { display: inline-block; }
+    .header .menu { clear: both; float: none; max-height: 0; transition: max-height .2s ease-out; text-align: left; }
+    .navigation li a:link,
+    .navigation li a:visited { padding-bottom: 3px; }
+    .sticky .navigation li a:link,
+    .sticky .navigation li a:visited { padding: 3px 0; }
+
+    .features-intro { width: 100%; margin-left: 0; margin-bottom: 25px; }
+    .grid-box { padding: 2%; }
+    .icons { font-size: 250%; }
+
+    .grid-item:first-child { text-align: center; padding-right: 0; }
+    .grid-item:last-child { padding-left: 0; }
+    /* .steps { margin-bottom: 20px; } */
+    .steps:last-of-type { margin-bottom: 20px; }
+    .steps span { width: 40px; height: 40px; padding: 4px; margin-right: 15px; font-size: 120%; margin-top: -10px; }
+    .app-screen { width: 40%; }
+    .store-icons { text-align: center; }
+    .app-btn img { height: 45px; }
+
+    .content { font-size: 110%; }
+    .list-icons i { margin-right: 15px; }
+
+    .plan-cards { width: 95%; margin-left: 2.5%; margin-bottom: 3%; }
+
+    .contact-form { width: 100%; }
+    .grid-form .form-item:first-child { margin-bottom: 2%; }
+    .grid-form:last-child .form-item:first-child { display: none; }
+
+    footer { padding:30px 0; text-align: center; }
+    .footer-grid { margin: 15px 0; }
+    .social-links { text-align: center; }
+    footer p { margin-top: 15px; }
+    
+}
+
+/* Small Phones: from 0 to 480px */
+@media only screen and (max-width: 480px){
+
+    /* nav .navicon { display: block; }
+	.navigation li { display: block; }
+	nav .menu { clear: both; max-height: 0; transition: max-height .2s ease-out; position: fixed; width: 90%; margin: 20px 0; } */
+
+
+    section { padding: 25px 0; }
+
+    h1 { font-size: 160%; }
+    h2 { font-size: 140%; }
+
+    /* Other sections look good */
+}
+
+/* Animations */
+.js-fadeIn,
+.js-fadeInUp,
+.js-fadeIn-1 {
+    opacity: 0;
+    animation-duration: 1s;
+}
+
+.js-pulse {
+    animation-duration: 1s;
+}
+
+.js-fadeIn.animated,
+.js-fadeInUp.animated,
+.js-fadeIn-1.animated {
+    opacity: 1;
+}
