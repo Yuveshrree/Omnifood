@@ -172,7 +172,7 @@ nav .row {
 .sticky .navigation li a:link,
 .sticky .navigation li a:visited {
     color: #444;
-    padding: 18px 0;
+    padding: 17px 0;
 }
 
 .sticky .navigation {
@@ -727,7 +727,9 @@ footer p {
     .header .menu-icon { display: inline-block; }
     .header .menu { clear: both; float: none; max-height: 0; transition: max-height .2s ease-out; text-align: left; }
     .navigation li a:link,
-    .navigation li a:visited { padding-bottom: 0; }
+    .navigation li a:visited { padding-bottom: 3px; }
+    .sticky .navigation li a:link,
+    .sticky .navigation li a:visited { padding: 3px 0; }
 
     .features-intro { width: 100%; margin-left: 0; margin-bottom: 25px; }
     .grid-box { padding: 2%; }
