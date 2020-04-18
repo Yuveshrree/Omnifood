@@ -279,9 +279,9 @@ nav .row {
 } */
 
 header {
-    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.6)),to(rgba(0,0,0,0.6))),url(../img/hero.jpg) center;
-    background: -o-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero.jpg) center;
-    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero.jpg) center;
+    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.6)),to(rgba(0,0,0,0.6))),url(../img/hero-min.jpg) center;
+    background: -o-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero-min.jpg) center;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/hero-min.jpg) center;
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
@@ -497,9 +497,9 @@ input[type=submit]:active {
 } */
 
 .testimonials {
-    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0.8))),url(../img/back-customers.jpg) center;
-    background: -o-linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers.jpg) center;
-    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers.jpg) center;
+    background: -webkit-gradient(linear,left top, left bottom,from(rgba(0,0,0,0.8)),to(rgba(0,0,0,0.8))),url(../img/back-customers-min.jpg) center;
+    background: -o-linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers-min.jpg) center;
+    background: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(../img/back-customers-min.jpg) center;
     background-size: cover;
     background-attachment: fixed;
     color: #fff;
