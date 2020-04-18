@@ -722,7 +722,7 @@ footer p {
     .row, .hero-text { padding: 0 4%; }
     /* .navigation { display: none; } */
     .logo { height: 60px; margin-top: 12px; }
-    .navigation { overflow: hidden; float: none; text-align: center; }
+    .navigation { overflow: hidden; float: none; /* text-align: center; */ }
     .navigation li { display: block; margin: 15px 15px;}
     .header .menu-icon { display: inline-block; }
     .header .menu { clear: both; float: none; max-height: 0; transition: max-height .2s ease-out; }
