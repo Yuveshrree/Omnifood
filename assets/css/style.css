@@ -726,6 +726,8 @@ footer p {
     .navigation li { display: block; margin: 15px 15px;}
     .header .menu-icon { display: inline-block; }
     .header .menu { clear: both; float: none; max-height: 0; transition: max-height .2s ease-out; text-align: left; }
+    .navigation li a:link,
+    .navigation li a:visited { padding-bottom: 0; }
 
     .features-intro { width: 100%; margin-left: 0; margin-bottom: 25px; }
     .grid-box { padding: 2%; }
