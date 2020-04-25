@@ -719,6 +719,8 @@ footer p {
     .content { font-size: 90%; }
     .list-icons i { margin-right: 5px; }
 
+    .testimonials { background-attachment: scroll; }
+
     .plan-cards { width: auto; }
     .price { font-size: 250%; }
 
